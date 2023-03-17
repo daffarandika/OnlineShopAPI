@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OnlineShopAPI.Models;
 using OnlineShopAPI.Utils;
@@ -17,6 +18,7 @@ namespace OnlineShopAPI.Controllers
             _context = context;
         }
 
+        [AllowAnonymous]
         [HttpPost]
         public ActionResult<string> login(string username, string password)
         {
